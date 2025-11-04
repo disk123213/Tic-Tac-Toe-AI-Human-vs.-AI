@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>井字棋 — 人机对战（优化版）</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>井字棋（Tic‑Tac‑Toe）</h1>
+    <section class="controls">
+      <div>
+        <!-- 保留棋子选择，新增难度选择 -->
+        <label>你的棋子：
+          <select id="playerChoice">
+            <option value="X">X（先手）</option>
+            <option value="O">O（后手）</option>
+          </select>
+        </label>
+        <label style="margin-left: 12px;">难度：
+          <select id="difficulty">
+            <option value="hard">困难（不可战胜）</option>
+            <option value="medium">中等（3步预判）</option>
+            <option value="easy">简单（随机落子）</option>
+          </select>
+        </label>
+        <button id="startBtn">开始游戏</button>
+        <button id="restartBtn">重置比分</button>
+      </div>
+      <!-- 新增加载动画容器 -->
+      <div class="status" id="status">
+        <span id="statusText">请选择棋子和难度，点击“开始游戏”</span>
+        <span id="loadingSpinner" class="loading-spinner" style="display: none;"></span>
+      </div>
+    </section>
+    <section class="board-wrapper">
+      <div id="board" class="board" aria-label="井字棋棋盘" role="grid">
+        <div class="cell" data-index="0" role="gridcell"></div>
+        <div class="cell" data-index="1" role="gridcell"></div>
+        <div class="cell" data-index="2" role="gridcell"></div>
+        <div class="cell" data-index="3" role="gridcell"></div>
+        <div class="cell" data-index="4" role="gridcell"></div>
+        <div class="cell" data-index="5" role="gridcell"></div>
+        <div class="cell" data-index="6" role="gridcell"></div>
+        <div class="cell" data-index="7" role="gridcell"></div>
+        <div class="cell" data-index="8" role="gridcell"></div>
+      </div>
+    </section>
+    <section class="scoreboard">
+      <div>你: <span id="humanScore">0</span></div>
+      <div>电脑: <span id="aiScore">0</span></div>
+      <div>平局: <span id="drawScore">0</span></div>
+    </section>
+    <footer>
+      <p>优化版 | AI 支持难度调节，比分自动保存</p>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
